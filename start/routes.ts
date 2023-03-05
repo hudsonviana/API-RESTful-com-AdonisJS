@@ -4,4 +4,6 @@ Route.group(() => {
   Route.get('/', async () => {
     return { ola: 'Mundo' };
   });
+
+  Route.post('/moments', 'MomentsController.store');
 }).prefix('api');
