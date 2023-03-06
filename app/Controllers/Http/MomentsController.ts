@@ -28,10 +28,18 @@ export default class MomentsController {
       body.image = imageName;
     }
 
-    const moment = await Moment.create(body);
+    const moments = await Moment.create(body);
     response.status(201);
     return {
       message: 'ok',
+      data: moments,
+    };
+  }
+
+  public async show({ params }: HttpContextContract) {
+    const moment = await Moment.findOrFail(params.id);
+
+    return {
       data: moment,
     };
   }
