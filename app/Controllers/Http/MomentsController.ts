@@ -43,6 +43,17 @@ export default class MomentsController {
       data: moment,
     };
   }
+
+  public async destroy({ params }: HttpContextContract) {
+    const moment = await Moment.findOrFail(params.id);
+
+    await moment.delete();
+
+    return {
+      message: 'Registro excluído com sucesso',
+      data: moment,
+    };
+  }
 }
 
 // https://www.youtube.com/watch?v=y8XfJJYhXPE
