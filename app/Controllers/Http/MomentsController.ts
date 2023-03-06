@@ -9,6 +9,13 @@ export default class MomentsController {
     size: '2mb',
   };
 
+  public async index() {
+    const moments = await Moment.all();
+    return {
+      data: moments,
+    };
+  }
+
   public async store({ request, response }: HttpContextContract) {
     const body = request.body();
     const image = request.file('image', this.validationOptions);
