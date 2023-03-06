@@ -13,4 +13,6 @@ Route.group(() => {
    * PUT|PATCH  /api/moments/:id ────────── moments.update ›  MomentsController.update
    * DELETE     /api/moments/:id ────────── moments.destroy › MomentsController.destroy
    */
+
+  Route.post('/moments/:momentId/comments', 'CommentsController.store');
 }).prefix('api');
